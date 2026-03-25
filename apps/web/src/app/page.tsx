@@ -16,12 +16,12 @@ function RetroWindow({ title, children }: { title: string; children: React.React
   return (
     <div className="border border-neutral-300 bg-white dark:border-neutral-700 dark:bg-neutral-950">
       {/* title bar */}
-      <div className="flex items-center justify-between border-b border-neutral-300 bg-neutral-200 px-3 py-1.5 dark:border-neutral-700 dark:bg-neutral-900">
+      <div className="flex items-center justify-between border-b border-neutral-300 bg-neutral-100 px-3 py-1.5 dark:border-neutral-700 dark:bg-neutral-900">
         <span className="font-mono text-xs text-neutral-500 dark:text-neutral-400">{title}</span>
         <div className="flex gap-1">
-          <div className="h-3 w-3 border border-neutral-400 bg-accent-amber/60 dark:border-neutral-600" />
-          <div className="h-3 w-3 border border-neutral-400 bg-accent-green/60 dark:border-neutral-600" />
-          <div className="h-3 w-3 border border-neutral-400 bg-accent-rose/60 dark:border-neutral-600" />
+          <div className="h-3 w-3 border border-neutral-300 bg-accent-amber/60 dark:border-neutral-600" />
+          <div className="h-3 w-3 border border-neutral-300 bg-accent-green/60 dark:border-neutral-600" />
+          <div className="h-3 w-3 border border-neutral-300 bg-accent-rose/60 dark:border-neutral-600" />
         </div>
       </div>
       {/* content */}
@@ -33,13 +33,13 @@ function RetroWindow({ title, children }: { title: string; children: React.React
 function CodePreview() {
   return (
     <RetroWindow title="hello.py">
-      <pre className="overflow-x-auto p-6 font-mono text-sm leading-loose">
+      <pre className="overflow-x-auto p-6 font-mono text-sm leading-loose text-neutral-700 dark:text-neutral-300">
         <code>
-          <span className="text-neutral-400">{"# your first program"}</span>
+          <span className="text-neutral-400 dark:text-neutral-500">{"# your first program"}</span>
           {"\n"}
           <span className="text-accent-violet">def</span>{" "}
           <span className="text-accent-amber">greet</span>
-          <span className="text-neutral-400">{"(name):"}</span>
+          <span className="text-neutral-500 dark:text-neutral-400">{"(name):"}</span>
           {"\n"}
           {"    "}
           <span className="text-accent-violet">return</span>{" "}
@@ -49,17 +49,17 @@ function CodePreview() {
             {'!"'}
           </span>
           {"\n\n"}
-          <span className="text-neutral-200 dark:text-neutral-200">message</span>
-          <span className="text-neutral-500">{" = "}</span>
+          <span className="text-neutral-800 dark:text-neutral-200">message</span>
+          <span className="text-neutral-400 dark:text-neutral-500">{" = "}</span>
           <span className="text-accent-amber">greet</span>
           {"("}
           <span className="text-accent-green">{'"World"'}</span>
           {")"}
           {"\n"}
           <span className="text-accent-cyan">print</span>
-          <span className="text-neutral-300">{"(message)"}</span>
+          {"(message)"}
           {"\n\n"}
-          <span className="text-neutral-500">{"# → Hello, World!"}</span>
+          <span className="text-neutral-400 dark:text-neutral-500">{"# → Hello, World!"}</span>
         </code>
       </pre>
     </RetroWindow>
@@ -70,11 +70,11 @@ function TerminalOutput() {
   return (
     <RetroWindow title="terminal">
       <div className="p-6 font-mono text-sm">
-        <div className="text-neutral-400">
+        <div className="text-neutral-500 dark:text-neutral-400">
           <span className="text-accent-green">$</span> python hello.py
         </div>
         <div className="mt-1 text-accent-green">Hello, World!</div>
-        <div className="mt-3 text-neutral-400">
+        <div className="mt-3 text-neutral-500 dark:text-neutral-400">
           <span className="text-accent-green">$</span>
           <span className="animate-blink ml-1 inline-block h-4 w-2 bg-accent-green align-middle" />
         </div>
@@ -143,8 +143,8 @@ export default function Home() {
               <span className="border border-transparent px-2 py-1 transition-colors hover:border-neutral-300 hover:text-neutral-600 dark:hover:border-neutral-700 dark:hover:text-neutral-300">
                 Python
               </span>
-              <span className="px-2 py-1 text-neutral-300 dark:text-neutral-600">Docs</span>
-              <span className="px-2 py-1 text-neutral-300 dark:text-neutral-600">About</span>
+              <span className="px-2 py-1 text-neutral-400 dark:text-neutral-600">Docs</span>
+              <span className="px-2 py-1 text-neutral-400 dark:text-neutral-600">About</span>
             </div>
           </div>
           <div className="flex items-center gap-3">
@@ -219,7 +219,7 @@ export default function Home() {
                 href="https://kroq.dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cursor-pointer text-neutral-300 transition-colors hover:text-accent-green dark:text-neutral-400 dark:hover:text-accent-green"
+                className="cursor-pointer text-neutral-500 transition-colors hover:text-accent-green dark:text-neutral-400 dark:hover:text-accent-green"
               >
                 kroq.dev
               </a>
@@ -238,7 +238,7 @@ export default function Home() {
           <div className="flex items-center gap-4 font-mono text-xs text-neutral-400 dark:text-neutral-500">
             <span>
               <span className="text-accent-green">1</span>
-              <span className="text-neutral-300 dark:text-neutral-600">/7</span> langs
+              <span className="text-neutral-400 dark:text-neutral-600">/7</span> langs
             </span>
             <span className="font-mono">v0.1.0</span>
           </div>
