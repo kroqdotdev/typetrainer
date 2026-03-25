@@ -15,13 +15,13 @@ export const get = query({
         .withIndex("by_user_language", (q) =>
           q.eq("tokenIdentifier", identity.tokenIdentifier).eq("languageId", args.languageId!),
         )
-        .collect();
+        .take(500);
     }
 
     return ctx.db
       .query("progress")
       .withIndex("by_user", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
-      .collect();
+      .take(500);
   },
 });
 
@@ -36,10 +36,12 @@ export const complete = mutation({
 
     const existing = await ctx.db
       .query("progress")
-      .withIndex("by_user_language", (q) =>
-        q.eq("tokenIdentifier", identity.tokenIdentifier).eq("languageId", args.languageId),
+      .withIndex("by_user_language_lesson", (q) =>
+        q
+          .eq("tokenIdentifier", identity.tokenIdentifier)
+          .eq("languageId", args.languageId)
+          .eq("lessonId", args.lessonId),
       )
-      .filter((q) => q.eq(q.field("lessonId"), args.lessonId))
       .first();
 
     if (existing) return existing._id;

@@ -9,7 +9,8 @@ export default defineSchema({
     completedAt: v.number(),
   })
     .index("by_user", ["tokenIdentifier"])
-    .index("by_user_language", ["tokenIdentifier", "languageId"]),
+    .index("by_user_language", ["tokenIdentifier", "languageId"])
+    .index("by_user_language_lesson", ["tokenIdentifier", "languageId", "lessonId"]),
 
   userPreferences: defineTable({
     tokenIdentifier: v.string(),

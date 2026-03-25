@@ -7,7 +7,34 @@ export type Language = {
   available: boolean;
 };
 
-export type Lesson = {
+export type FileDefinition = {
+  path: string;
+  content: string;
+  readOnly?: boolean;
+};
+
+export type LessonDefinition = {
+  id: string;
+  moduleId: string;
+  languageId: string;
+  title: string;
+  description: string;
+  order: number;
+  type: "guided" | "challenge";
+
+  explanation: string;
+  task: string;
+
+  starterFiles: FileDefinition[];
+  solutionFiles: FileDefinition[];
+
+  expectedOutput?: string;
+  testFile?: FileDefinition;
+
+  hints: string[];
+};
+
+export type ModuleMeta = {
   id: string;
   languageId: string;
   title: string;
@@ -15,9 +42,7 @@ export type Lesson = {
   order: number;
 };
 
-export type UserProgress = {
-  completedLessons: string[];
-  currentLanguage: string | null;
-  currentLesson: string | null;
-  lastUpdated: number;
+export type CourseModule = {
+  meta: ModuleMeta;
+  lessons: LessonDefinition[];
 };
