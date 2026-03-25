@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark, .dark *));
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-accent-green: #00ffaa;
+  --color-accent-violet: #c084fc;
+  --color-accent-cyan: #00e5ff;
+  --color-accent-amber: #ffd600;
+  --color-accent-rose: #ff3366;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-feature-settings:
+    "rlig" 1,
+    "calt" 1;
+}
+
+::selection {
+  background-color: #00ffaa30;
+  color: #fff;
+}
+
+/* dot grid background */
+.bg-grid {
+  background-image: radial-gradient(circle, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .bg-grid-light,
+.bg-grid-light:not(:is(.dark *)) {
+  background-image: radial-gradient(circle, rgb(0 0 0 / 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* blinking cursor */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* scanlines — very subtle overlay */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgb(0 0 0 / 0.03) 2px,
+    rgb(0 0 0 / 0.03) 4px
+  );
+  pointer-events: none;
+}
+
+/* glow utilities */
+.glow-green {
+  box-shadow:
+    0 0 15px rgb(0 255 170 / 0.3),
+    0 0 30px rgb(0 255 170 / 0.1);
+}
+
+.glow-green-sm {
+  box-shadow:
+    0 0 8px rgb(0 255 170 / 0.25),
+    0 0 16px rgb(0 255 170 / 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

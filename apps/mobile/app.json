@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "TypeTrainer",
+    "slug": "typetrainer",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "typetrainer",
+    "platforms": ["ios", "android"],
+    "ios": {
+      "bundleIdentifier": "com.typetrainer.app"
+    },
+    "android": {
+      "package": "com.typetrainer.app"
+    }
+  }
+}

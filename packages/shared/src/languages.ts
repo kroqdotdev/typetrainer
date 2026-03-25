@@ -1,0 +1,60 @@
+import type { Language } from "./types";
+
+export const languages: Language[] = [
+  {
+    id: "python",
+    name: "Python",
+    slug: "python",
+    description: "Clean syntax, huge ecosystem. The best first language.",
+    color: "#3B82F6",
+    available: true,
+  },
+  {
+    id: "javascript",
+    name: "JavaScript",
+    slug: "javascript",
+    description: "The language of the web. Runs everywhere.",
+    color: "#FBBF24",
+    available: false,
+  },
+  {
+    id: "typescript",
+    name: "TypeScript",
+    slug: "typescript",
+    description: "JavaScript with types. Catches bugs before they ship.",
+    color: "#3178C6",
+    available: false,
+  },
+  {
+    id: "rust",
+    name: "Rust",
+    slug: "rust",
+    description: "Fast, safe, concurrent. No garbage collector needed.",
+    color: "#FB923C",
+    available: false,
+  },
+  {
+    id: "go",
+    name: "Go",
+    slug: "go",
+    description: "Simple, fast, built for concurrency.",
+    color: "#00ADD8",
+    available: false,
+  },
+  {
+    id: "ruby",
+    name: "Ruby",
+    slug: "ruby",
+    description: "Optimized for developer happiness.",
+    color: "#CC342D",
+    available: false,
+  },
+  {
+    id: "cpp",
+    name: "C++",
+    slug: "cpp",
+    description: "High performance. Systems, games, embedded.",
+    color: "#A78BFA",
+    available: false,
+  },
+];
